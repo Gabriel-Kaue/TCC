@@ -5,11 +5,13 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.app.HomeScreen
-import com.example.app.ProfileScreen
+import com.example.app.LoginScreen
+import com.example.app.SignupScreen
 
 @Composable
 fun MainScreen() {
@@ -17,19 +19,32 @@ fun MainScreen() {
     Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
         NavHost(navController = navController, startDestination = Routes.home) {
             composable(Routes.home){
-                HomeScreen(Modifier.padding(innerPadding)) {
-                    navController.navigate(Routes.profile)
+                HomeScreen(
+                    modifier = Modifier.padding(innerPadding),
+                    onLoginClick = {
+                        navController.navigate(Routes.login)
+                    },
+                    onSignupClick = {
+                        navController.navigate(Routes.signup)
+                    }
+                )
+            }
+            composable(Routes.login){
+                LoginScreen{
+
                 }
             }
-            composable(Routes.profile) {
-                ProfileScreen {
-                    navController.popBackStack()
+            composable(Routes.signup){
+                SignupScreen {
+
                 }
             }
         }
     }
+}
 
-
-
-
+@Preview
+@Composable
+fun mainscrenP(){
+    MainScreen();
 }
