@@ -10,7 +10,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.app.HomeScreen
-import com.example.app.LoginScreen
+import com.example.app.LoginForm
+//import com.example.app.LoginScreen
 import com.example.app.SignupScreen
 
 @Composable
@@ -30,7 +31,7 @@ fun MainScreen() {
                 )
             }
             composable(Routes.login){
-                LoginScreen{
+                LoginForm{
 
                 }
             }
