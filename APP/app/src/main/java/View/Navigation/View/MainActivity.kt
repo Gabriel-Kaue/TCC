@@ -1,11 +1,10 @@
-package com.example.app
+package View.Navigation.View
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import com.example.app.navigation.MainScreen
-import com.example.app.ui.theme.APPTheme
+import Navigaion.MainScreen
 
 
 class MainActivity : ComponentActivity() {

@@ -1,5 +1,5 @@
 
-package com.example.app
+package View.Navigation.View
 
 import android.app.Activity
 import android.content.Context
@@ -72,6 +72,7 @@ fun LoginForm(
                 onChange = { data -> credentials = credentials.copy(login = data) },
                 modifier = Modifier.fillMaxWidth()
             )
+            Spacer(modifier = Modifier.height(20.dp))
             PasswordField(
                 value = credentials.pwd,
                 onChange = { data -> credentials = credentials.copy(pwd = data) },
@@ -152,7 +153,7 @@ fun LoginField(
     onChange: (String) -> Unit,
     modifier: Modifier = Modifier,
     label: String = "Usuário",
-    placeholder: String = "Entre com sua conta"
+    placeholder: String = "Entre com seu email"
 ) {
 
     val focusManager = LocalFocusManager.current

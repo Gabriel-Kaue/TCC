@@ -1,4 +1,4 @@
-package com.example.app.navigation
+package Navigaion
 
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -9,10 +9,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.app.HomeScreen
-import com.example.app.LoginForm
+import View.Navigation.View.HomeScreen
+import View.Navigation.View.LoginForm
 //import com.example.app.LoginScreen
-import com.example.app.SignupScreen
+import View.Navigation.View.SignupScreen
 
 @Composable
 fun MainScreen() {

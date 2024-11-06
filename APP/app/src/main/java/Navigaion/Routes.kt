@@ -1,4 +1,4 @@
-package com.example.app.navigation
+package Navigaion
 
 object Routes {
     val home = "home"
