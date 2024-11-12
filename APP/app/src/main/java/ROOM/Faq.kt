@@ -1,3 +1,13 @@
 package ROOM
 
-data class Faq()
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity(tableName = "faq")
+data class Faq(
+    @PrimaryKey
+    val idPergunta: Int,
+    val titulo: String,
+    val pergunta:String,
+    val resposta: String
+)

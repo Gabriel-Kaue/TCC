@@ -3,6 +3,7 @@ import org.jetbrains.kotlin.gradle.plugin.extraProperties
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+
 }
 
 android {
@@ -64,6 +65,10 @@ dependencies {
     implementation(libs.androidx.navigation)
     implementation(libs.androidx.material3.window)
     implementation(libs.androidx.adaptive.android)
+    implementation(libs.androidx.room)
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.commons)
+    implementation(libs.androidx.room.kapt)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

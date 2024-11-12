@@ -1,4 +1,5 @@
 package View.Navigation.View
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
@@ -84,5 +85,6 @@ fun ReapetField(
 @Preview
 @Composable
 fun TesteTela(){
+    EmailField()
 
 }

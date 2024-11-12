@@ -152,7 +152,7 @@ fun LoginField(
     value: String,
     onChange: (String) -> Unit,
     modifier: Modifier = Modifier,
-    label: String = "Usuário",
+    label: String = "Email",
     placeholder: String = "Entre com seu email"
 ) {
 
