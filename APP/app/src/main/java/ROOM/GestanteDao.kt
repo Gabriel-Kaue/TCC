@@ -1,0 +1,4 @@
+package ROOM
+
+interface GestanteDao {
+}
