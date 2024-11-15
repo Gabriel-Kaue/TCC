@@ -11,6 +11,10 @@ import java.util.Date
         entity = Medico::class,
         childColumns = ["crmMedico"],
         parentColumns = ["CRM"],
+    ),ForeignKey(
+        entity = Gestante::class,
+        childColumns = ["nisGestante"],
+        parentColumns = ["nis"]
     )])
 data class Agenda(
     @PrimaryKey

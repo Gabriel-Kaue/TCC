@@ -1,5 +1,6 @@
 package ROOM
 
+import ROOM.DAO.GestanteDao
 import androidx.room.Database
 import androidx.room.RoomDatabase
 
