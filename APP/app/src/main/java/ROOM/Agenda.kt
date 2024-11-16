@@ -17,7 +17,7 @@ import java.util.Date
         parentColumns = ["nis"]
     )])
 data class Agenda(
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     val idAgenda: Int,
     val dataAgendamento: Date,
     @ColumnInfo(name = "crmMedico")

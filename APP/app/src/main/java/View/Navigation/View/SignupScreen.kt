@@ -82,9 +82,3 @@ fun ReapetField(
 ){
 
 }
-@Preview
-@Composable
-fun TesteTela(){
-    EmailField()
-
-}

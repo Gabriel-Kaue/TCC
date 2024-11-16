@@ -43,9 +43,3 @@ fun MainScreen() {
         }
     }
 }
-
-@Preview
-@Composable
-fun mainscrenP(){
-    MainScreen();
-}

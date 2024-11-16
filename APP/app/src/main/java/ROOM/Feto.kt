@@ -5,7 +5,7 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "tabela_feto")
 data class Feto(
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     val idFeto: Int,
     val peso: Float,
     val tipoSang: String,
