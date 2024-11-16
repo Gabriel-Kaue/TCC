@@ -6,16 +6,18 @@ import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 import java.util.Date
 
-@Entity(tableName = "tabela_agenda",
+@Entity(
+    tableName = "tabela_agenda",
     foreignKeys = [ForeignKey(
         entity = Medico::class,
         childColumns = ["crmMedico"],
         parentColumns = ["CRM"],
-    ),ForeignKey(
+    ), ForeignKey(
         entity = Gestante::class,
         childColumns = ["nisGestante"],
         parentColumns = ["nis"]
-    )])
+    )]
+)
 data class Agenda(
     @PrimaryKey(autoGenerate = true)
     val idAgenda: Int,
@@ -23,5 +25,5 @@ data class Agenda(
     @ColumnInfo(name = "crmMedico")
     val crmMedico: String,
     @ColumnInfo(name = "nisGestante")
-    val nisGestante:String,
-    )
+    val nisGestante: String,
+)

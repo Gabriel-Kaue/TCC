@@ -5,10 +5,9 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "tabela_endeco")
 data class Endereco(
-    @PrimaryKey(autoGenerate = true)
-    val idEndereco : Int,
     val endereco: String,
     val complemento: String,
-    val CEP: String
-
+    val CEP: String,
+    @PrimaryKey(autoGenerate = true)
+    val idEndereco: Int
 )

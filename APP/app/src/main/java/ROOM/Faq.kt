@@ -8,6 +8,6 @@ data class Faq(
     @PrimaryKey(autoGenerate = true)
     val idPergunta: Int,
     val titulo: String,
-    val pergunta:String,
+    val pergunta: String,
     val resposta: String
 )
