@@ -1,4 +1,4 @@
-package ROOM
+package room
 
 sealed interface CadastroEvent {
     object SalvarGestante : CadastroEvent

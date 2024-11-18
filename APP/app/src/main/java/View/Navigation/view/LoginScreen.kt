@@ -1,5 +1,4 @@
-
-package View.Navigation.View
+package View.Navigation.view
 
 import android.app.Activity
 import android.content.Context
@@ -54,7 +53,7 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun LoginForm(
     windowSizeClass: androidx.window.core.layout.WindowSizeClass = currentWindowAdaptiveInfo().windowSizeClass,
-    onClick:()-> Unit
+    onClick: () -> Unit
 ) {
     Surface {
         var credentials by remember { mutableStateOf(Credentials()) }
@@ -235,11 +234,11 @@ fun PasswordField(
 @Preview(showBackground = true, device = "id:Nexus One", showSystemUi = true)
 @Composable
 fun LoginFormPreview() {
-        LoginForm(onClick = {})
+    LoginForm(onClick = {})
 }
 
 @Preview(showBackground = true, device = "id:Nexus One", showSystemUi = true)
 @Composable
 fun LoginFormPreviewDark() {
-        LoginForm(onClick = {})
+    LoginForm(onClick = {})
 }

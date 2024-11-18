@@ -1,25 +1,24 @@
-package Navigaion
+package navigation
 
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import View.Navigation.View.HomeScreen
-import View.Navigation.View.LoginForm
+import View.Navigation.view.HomeScreen
+import View.Navigation.view.LoginForm
 //import com.example.app.LoginScreen
-import View.Navigation.View.SignupScreen
+import View.Navigation.view.SignupScreen
 
 @Composable
 fun MainScreen() {
     val navController = rememberNavController()
     Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
         NavHost(navController = navController, startDestination = Routes.home) {
-            composable(Routes.home){
+            composable(Routes.home) {
                 HomeScreen(
                     modifier = Modifier.padding(innerPadding),
                     onLoginClick = {
@@ -30,12 +29,12 @@ fun MainScreen() {
                     }
                 )
             }
-            composable(Routes.login){
-                LoginForm{
+            composable(Routes.login) {
+                LoginForm {
 
                 }
             }
-            composable(Routes.signup){
+            composable(Routes.signup) {
                 SignupScreen {
 
                 }

@@ -1,5 +1,5 @@
-package View.Navigation.View
-import androidx.compose.foundation.layout.fillMaxWidth
+package View.Navigation.view
+
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
@@ -14,12 +14,12 @@ import androidx.compose.ui.focus.FocusDirection
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.VisualTransformation
-import androidx.compose.ui.tooling.preview.Preview
 
 @Composable
-fun SignupScreen(onClick:()-> Unit){
+fun SignupScreen(onClick: () -> Unit) {
 
 }
+
 @Composable
 fun EmailField(
     value: String,
@@ -27,7 +27,7 @@ fun EmailField(
     modifier: Modifier = Modifier,
     label: String = "Usuário",
     placeholder: String = "Entre com seu email"
-){
+) {
 
     val focusManager = LocalFocusManager.current
     val leadingIcon = @Composable {
@@ -57,9 +57,10 @@ fun EmailField(
 @Composable
 fun DateField(
 
-){
+) {
 
 }
+
 @Composable
 fun PasswordFieldC(
     value: String,
@@ -68,9 +69,10 @@ fun PasswordFieldC(
     modifier: Modifier = Modifier,
     label: String = "Senha",
     placeholder: String = "Entre com sua senha"
-){
+) {
 
 }
+
 @Composable
 fun ReapetField(
     value: String,
@@ -79,6 +81,6 @@ fun ReapetField(
     modifier: Modifier = Modifier,
     label: String = "Senha",
     placeholder: String = "Entre com sua senha"
-){
+) {
 
 }

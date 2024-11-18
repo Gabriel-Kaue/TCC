@@ -1,7 +1,6 @@
-package ROOM.DAO
+package room.dao
 
 import androidx.room.Dao
-import ROOM.Endereco
 
 @Dao
 interface EnderecoDao {

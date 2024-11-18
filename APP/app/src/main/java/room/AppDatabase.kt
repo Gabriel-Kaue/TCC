@@ -1,11 +1,11 @@
-package ROOM
+package room
 
-import ROOM.DAO.AgendaDao
-import ROOM.DAO.EnderecoDao
-import ROOM.DAO.FaqDao
-import ROOM.DAO.FetoDao
-import ROOM.DAO.GestanteDao
-import ROOM.DAO.MedicoDao
+import room.dao.AgendaDao
+import room.dao.EnderecoDao
+import room.dao.FaqDao
+import room.dao.FetoDao
+import room.dao.GestanteDao
+import room.dao.MedicoDao
 import androidx.room.Database
 import androidx.room.RoomDatabase
 

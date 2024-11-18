@@ -1,4 +1,4 @@
-package Navigaion
+package navigation
 
 object Routes {
     val home = "home"

@@ -1,6 +1,5 @@
-package ROOM.DAO
+package room.dao
 
-import ROOM.Medico
 import androidx.room.Dao
 
 @Dao

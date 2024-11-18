@@ -1,4 +1,4 @@
-package View.Navigation.View
+package View.Navigation.view
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -17,17 +17,22 @@ import androidx.compose.ui.unit.dp
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(modifier: Modifier = Modifier, onLoginClick: () -> Unit, onSignupClick: () -> Unit) {
-    Box(contentAlignment = Alignment.CenterEnd,
-        modifier = Modifier.fillMaxSize().padding(16.dp)
-    ){
-        Row (
+    Box(
+        contentAlignment = Alignment.CenterEnd,
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(16.dp)
+    ) {
+        Row(
             horizontalArrangement = Arrangement.spacedBy(32.dp),
-            modifier = Modifier.padding(8.dp).align(Alignment.Center)
-        ){
+            modifier = Modifier
+                .padding(8.dp)
+                .align(Alignment.Center)
+        ) {
             Button(
                 onClick = {
                     onLoginClick()
-                          },
+                },
             ) {
                 Text("LOGIN")
             }

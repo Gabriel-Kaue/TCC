@@ -1,9 +1,8 @@
-package ROOM.DAO
+package room.dao
 
-import ROOM.Gestante
+import room.Gestante
 import androidx.room.Dao
 import androidx.room.Delete
-import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Upsert
 import kotlinx.coroutines.flow.Flow
@@ -12,6 +11,7 @@ import kotlinx.coroutines.flow.Flow
 interface GestanteDao {
     @Upsert
     suspend fun addGestante(gestante: Gestante)
+
     @Delete
     suspend fun deleteGestante(gestante: Gestante)
 

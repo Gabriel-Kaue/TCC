@@ -1,10 +1,12 @@
-package View.Navigation.View
+package View.Navigation.view
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import Navigaion.MainScreen
+import navigation.MainScreen
+import room.AppDatabase
+import androidx.room.Room
 
 
 class MainActivity : ComponentActivity() {
@@ -14,5 +16,10 @@ class MainActivity : ComponentActivity() {
         setContent {
             MainScreen()
         }
+        val dp = Room.databaseBuilder(
+            applicationContext,
+            AppDatabase::class.java, "appgest"
+        ).build()
     }
 }
+
