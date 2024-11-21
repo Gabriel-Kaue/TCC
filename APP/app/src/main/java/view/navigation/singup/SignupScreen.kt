@@ -1,4 +1,4 @@
-package View.Navigation.view
+package view.navigation.singup
 
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions

@@ -1,4 +1,4 @@
-package View.Navigation.view.theme
+package view.theme
 
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme

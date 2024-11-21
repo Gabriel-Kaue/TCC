@@ -1,4 +1,4 @@
-package View.Navigation.view
+package view.navigation.login
 
 import android.app.Activity
 import android.content.Context
@@ -33,6 +33,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.adaptive.currentWindowAdaptiveInfo
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -48,17 +49,40 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
+import view.MainActivity
 
 
 @Composable
 fun LoginForm(
     windowSizeClass: androidx.window.core.layout.WindowSizeClass = currentWindowAdaptiveInfo().windowSizeClass,
-    onClick: () -> Unit
+    onClick: () -> Unit,
+    viewModel: LoginViewModel = viewModel()
 ) {
+
+    val state = viewModel.state.collectAsState()
+    val context = LocalContext.current
+    if (state.value.success) {
+        context.startActivity(Intent(context, MainActivity::class.java))
+        (context as Activity).finish()
+    } else {
+        errou asenha
+    }
+
     Surface {
         var credentials by remember { mutableStateOf(Credentials()) }
         val context = LocalContext.current
-
+        Column(
+            verticalArrangement = Arrangement.Top,
+            horizontalAlignment = Alignment.Start,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(vertical = 15.dp, horizontal = 15.dp)
+        ) {
+            Button(onClick = {}) {
+                Text("Teste")
+            }
+        }
         Column(
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally,
@@ -76,6 +100,7 @@ fun LoginForm(
                 value = credentials.pwd,
                 onChange = { data -> credentials = credentials.copy(pwd = data) },
                 submit = {
+                    viewModel.checkCredentials()
                     if (!checkCredentials(credentials, context)) credentials = Credentials()
                 },
                 modifier = Modifier.fillMaxWidth()

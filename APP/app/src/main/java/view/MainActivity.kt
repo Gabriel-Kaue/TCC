@@ -1,4 +1,4 @@
-package View.Navigation.view
+package view
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -16,10 +16,10 @@ class MainActivity : ComponentActivity() {
         setContent {
             MainScreen()
         }
-        val dp = Room.databaseBuilder(
-            applicationContext,
-            AppDatabase::class.java, "appgest"
-        ).build()
+//        val dp = Room.databaseBuilder(
+//            applicationContext,
+//            AppDatabase::class.java, "appgest"
+//        ).build()
     }
 }
 
