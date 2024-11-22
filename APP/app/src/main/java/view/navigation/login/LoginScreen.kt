@@ -3,6 +3,7 @@ package view.navigation.login
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.provider.ContactsContract.Profile
 import android.widget.Toast
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -50,23 +51,29 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import model.Credentials
+import navigation.Routes
 import view.MainActivity
+import view.navigation.maingest.MainGest
 
 
 @Composable
 fun LoginForm(
     windowSizeClass: androidx.window.core.layout.WindowSizeClass = currentWindowAdaptiveInfo().windowSizeClass,
     onClick: () -> Unit,
-    viewModel: LoginViewModel = viewModel()
+    viewModel: LoginViewModel = viewModel(),
 ) {
-
+    val navController = rememberNavController()
     val state = viewModel.state.collectAsState()
     val context = LocalContext.current
     if (state.value.success) {
         context.startActivity(Intent(context, MainActivity::class.java))
         (context as Activity).finish()
     } else {
-        errou asenha
+       // errou asenha
     }
 
     Surface {
@@ -80,6 +87,7 @@ fun LoginForm(
                 .padding(vertical = 15.dp, horizontal = 15.dp)
         ) {
             Button(onClick = {}) {
+                navController.popBackStack()
                 Text("Teste")
             }
         }
@@ -100,7 +108,7 @@ fun LoginForm(
                 value = credentials.pwd,
                 onChange = { data -> credentials = credentials.copy(pwd = data) },
                 submit = {
-                    viewModel.checkCredentials()
+                    viewModel.checkCredentials(credentials, context)
                     if (!checkCredentials(credentials, context)) credentials = Credentials()
                 },
                 modifier = Modifier.fillMaxWidth()
@@ -139,16 +147,15 @@ fun checkCredentials(creds: Credentials, context: Context): Boolean {
     }
 }
 
-data class Credentials(
-    var login: String = "",
-    var pwd: String = "",
-    var remember: Boolean = false
-) {
-    fun isNotEmpty(): Boolean {
-        return login.isNotEmpty() && pwd.isNotEmpty()
-    }
-}
-
+//data class Credentials(
+//    var login: String = "",
+//    var pwd: String = "",
+//    var remember: Boolean = false
+//) {
+//    fun isNotEmpty(): Boolean {
+//        return login.isNotEmpty() && pwd.isNotEmpty()
+//    }
+//}
 
 @Composable
 fun LabeledCheckbox(

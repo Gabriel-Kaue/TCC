@@ -26,17 +26,6 @@ fun HomeScreen(modifier: Modifier = Modifier, onLoginClick: () -> Unit, onSignup
             .padding(16.dp)
     ) {
         Column(
-            verticalArrangement = Arrangement.Top,
-            horizontalAlignment = Alignment.Start,
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(vertical = 15.dp, horizontal = 15.dp)
-        ) {
-            Button(onClick = {}) {
-                Text("Teste")
-            }
-        }
-        Column(
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier
