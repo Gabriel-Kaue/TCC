@@ -63,8 +63,8 @@ import view.navigation.maingest.MainGest
 @Composable
 fun LoginForm(
     windowSizeClass: androidx.window.core.layout.WindowSizeClass = currentWindowAdaptiveInfo().windowSizeClass,
-    onClick: () -> Unit,
     viewModel: LoginViewModel = viewModel(),
+    onClick: () -> Unit,
 ) {
     val navController = rememberNavController()
     val state = viewModel.state.collectAsState()
