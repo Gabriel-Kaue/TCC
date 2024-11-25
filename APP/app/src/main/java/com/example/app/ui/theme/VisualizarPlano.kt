@@ -1,3 +1,5 @@
+package com.example.app.ui.theme
+
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -40,7 +42,15 @@ fun FilledCardPlano(text: String) {
 }
 @Composable
 fun FourCards(){
-    Column {
+    Column  (modifier = Modifier.padding(16.dp),
+    horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Text(
+            text = "PLANO DE PARTO",
+            style = MaterialTheme.typography.titleLarge,
+            textAlign = TextAlign.Center,
+            modifier = Modifier.padding(bottom = 16.dp)
+        )
         FilledCardPlano("TRABALHO DE PARTO")
         FilledCardPlano("DURANTE O PARTO")
         FilledCardPlano("APÓS O PARTO")
