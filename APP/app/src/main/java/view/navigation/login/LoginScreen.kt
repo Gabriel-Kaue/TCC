@@ -73,12 +73,13 @@ fun LoginForm(
         context.startActivity(Intent(context, MainActivity::class.java))
         (context as Activity).finish()
     } else {
-       // errou asenha
+        // errou asenha
     }
 
     Surface {
         var credentials by remember { mutableStateOf(Credentials()) }
         val context = LocalContext.current
+
         Column(
             verticalArrangement = Arrangement.Top,
             horizontalAlignment = Alignment.Start,
@@ -86,10 +87,7 @@ fun LoginForm(
                 .fillMaxWidth()
                 .padding(vertical = 15.dp, horizontal = 15.dp)
         ) {
-            Button(onClick = {}) {
-                navController.popBackStack()
-                Text("Teste")
-            }
+
         }
         Column(
             verticalArrangement = Arrangement.Center,
