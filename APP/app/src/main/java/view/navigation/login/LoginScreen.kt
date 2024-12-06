@@ -3,7 +3,6 @@ package view.navigation.login
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
-import android.provider.ContactsContract.Profile
 import android.widget.Toast
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -51,13 +50,9 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import model.Credentials
-import navigation.Routes
 import view.MainActivity
-import view.navigation.maingest.MainGest
 
 
 @Composable
@@ -111,7 +106,7 @@ fun LoginForm(
                 },
                 modifier = Modifier.fillMaxWidth()
             )
-            Spacer(modifier = Modifier.height(10.dp))
+            Spacer(modifier = Modifier.height(20.dp))
             LabeledCheckbox(
                 label = "Salvar Credenciais",
                 onCheckChanged = {
