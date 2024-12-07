@@ -20,7 +20,7 @@ fun MainGest() {
             startDestination = Routes.maingest,
             modifier = Modifier.padding(innerPadding)
         ) {
-
+            
         }
     }
 }
