@@ -9,8 +9,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import view.HomeScreen
-import view.navigation.login.LoginForm
-import view.navigation.singup.SignupScreen
+import view.pages.login.LoginForm
+import view.pages.singup.SignupScreen
 
 @Composable
 fun MainScreen() {

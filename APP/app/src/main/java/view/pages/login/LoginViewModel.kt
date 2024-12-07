@@ -1,15 +1,11 @@
-package view.navigation.login
+package view.pages.login
 
-import android.app.Activity
 import android.content.Context
-import android.content.Intent
-import android.widget.Toast
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
 import model.Credentials
-import view.MainActivity
 
 
 data class LoginState(

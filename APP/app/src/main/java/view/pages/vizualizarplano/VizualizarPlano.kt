@@ -1,6 +1,8 @@
-package view.navigation.vizualizarpf
+package view.pages.vizualizarplano
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Card
@@ -15,9 +17,9 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-// Parte Caio
+
 @Composable
-fun FilledCard(text: String) {
+fun FilledCardPlano(text: String) {
     Card(
         colors = CardDefaults.cardColors(
             containerColor = Color(0xFFFFC0CB)
@@ -26,35 +28,41 @@ fun FilledCard(text: String) {
             .size(width = 240.dp, height = 100.dp)
             .padding(8.dp)
     ) {
-        Text(
-            text = text,
-            modifier = Modifier
-                .padding(16.dp),
-            textAlign = TextAlign.Center,
-        )
+        Column(
+            modifier = Modifier.fillMaxSize(),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center
+        ) {
+            Text(
+                text = text,
+                textAlign = TextAlign.Center,
+            )
+
+        }
     }
 }
 
 @Composable
-fun ThreeCards() {
+fun FourCards() {
     Column(
         modifier = Modifier.padding(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
-            text = "FAQ",
+            text = "PLANO DE PARTO",
             style = MaterialTheme.typography.titleLarge,
             textAlign = TextAlign.Center,
             modifier = Modifier.padding(bottom = 16.dp)
         )
-        FilledCard("Pergunta")
-        FilledCard("Pergunta")
-        FilledCard("Pergunta")
+        FilledCardPlano("TRABALHO DE PARTO")
+        FilledCardPlano("DURANTE O PARTO")
+        FilledCardPlano("APÓS O PARTO")
+        FilledCardPlano("CUIDADOS COM O BEBÊ")
     }
 }
 
 @Preview(showBackground = true)
 @Composable
-fun PreviewThreeCardsExample() {
-    ThreeCards() // Exibe os três cartões na interface de pré-visualização
+fun PreviewFourCardsExample() {
+    FourCards() // Exibe os três cartões na interface de pré-visualização
 }

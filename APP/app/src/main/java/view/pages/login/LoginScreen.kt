@@ -1,4 +1,4 @@
-package view.navigation.login
+package view.pages.login
 
 import android.app.Activity
 import android.content.Context
