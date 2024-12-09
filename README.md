@@ -9,5 +9,5 @@
 # Build(recomendado depuração pelo celular)
 > Abra o projeto no android e rode o aplicativo pelo android studio
 
-#APK
+# APK
 > Baixe o projeto e rode o appgest.apk no seu celular
