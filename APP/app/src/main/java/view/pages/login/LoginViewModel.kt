@@ -6,13 +6,14 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
 import model.Credentials
+import room.dao.GestanteDao
 
 
 data class LoginState(
     val success: Boolean = false
 )
 
-class LoginViewModel : ViewModel() {
+class LoginViewModel(private val gestanteDao: GestanteDao) : ViewModel() {
 
     val state: StateFlow<LoginState> get() = _state
     private val _state = MutableStateFlow<LoginState>(LoginState())

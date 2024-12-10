@@ -25,8 +25,8 @@ fun FilledCardPlano(text: String) {
             containerColor = MaterialTheme.colorScheme.primary,
         ),
         modifier = Modifier
-            .size(width = 240.dp, height = 100.dp)
-            .padding(8.dp)
+            .size(width = 400.dp, height = 100.dp)
+            .padding(8.dp),
     ) {
         Column(
             modifier = Modifier.fillMaxSize(),
