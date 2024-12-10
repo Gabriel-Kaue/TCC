@@ -10,11 +10,13 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import view.HomeScreen
 import view.pages.login.LoginForm
+import view.pages.maingest.MainG
 import view.pages.singup.SignupScreen
 
 @Composable
 fun MainScreen() {
     val navController = rememberNavController()
+
     Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
         NavHost(navController = navController, startDestination = Routes.home) {
             composable(Routes.home) {
@@ -32,6 +34,11 @@ fun MainScreen() {
             }
             composable(Routes.signup) {
                 SignupScreen {
+
+                }
+            }
+            composable(Routes.maingest) {
+                MainG {
 
                 }
             }

@@ -13,7 +13,7 @@ data class LoginState(
     val success: Boolean = false
 )
 
-class LoginViewModel(private val gestanteDao: GestanteDao) : ViewModel() {
+class LoginViewModel : ViewModel() {
 
     val state: StateFlow<LoginState> get() = _state
     private val _state = MutableStateFlow<LoginState>(LoginState())

@@ -16,7 +16,7 @@ import view.pages.vizualizarplano.FourCards
 import view.pages.acompanhamento.Acompanhamento
 
 @Composable
-fun MainG() {
+fun MainG(function: () -> Unit) {
     val navController = rememberNavController()
     Scaffold { innerPadding ->
         NavHost(
@@ -61,10 +61,4 @@ fun MainG() {
             }
         }
     }
-}
-
-@Preview
-@Composable
-fun PreviewMainGest() {
-    MainG()
 }
