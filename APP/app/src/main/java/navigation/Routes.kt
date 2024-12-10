@@ -5,5 +5,7 @@ object Routes {
     val login = "login"
     val signup = "sigup"
     val maingest = "maingest"
-    val back = "back"
+    val perguntas = "perguntas"
+    val planoparto = "planoparto"
+    val perfil = "perfil"
 }

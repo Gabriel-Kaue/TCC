@@ -1,4 +1,4 @@
-package view.navigation.singup
+package view.pages.singup
 
 import android.app.Activity
 import android.content.Intent
@@ -43,7 +43,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.rememberNavController
 import view.MainActivity
-import view.navigation.login.LoginViewModel
+import view.pages.login.LoginViewModel
 
 @Composable
 fun SignupScreen(
