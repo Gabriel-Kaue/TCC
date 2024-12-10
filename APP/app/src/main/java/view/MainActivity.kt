@@ -16,10 +16,6 @@ class MainActivity : ComponentActivity() {
         setContent {
             MainScreen()
         }
-//        val dp = Room.databaseBuilder(
-//            applicationContext,
-//            AppDatabase::class.java, "appgest"
-//        ).build()
     }
 }
 

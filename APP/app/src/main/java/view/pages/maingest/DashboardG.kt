@@ -58,7 +58,6 @@ fun DashboardG(
                     )
                 }
             }
-            // Additional configurations
         )
     }, floatingActionButton = {
         LargeFloatingActionButton(

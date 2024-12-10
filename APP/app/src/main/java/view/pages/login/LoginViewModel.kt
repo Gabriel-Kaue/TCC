@@ -6,6 +6,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
 import model.Credentials
+import room.dao.GestanteDao
 
 
 data class LoginState(
@@ -19,11 +20,8 @@ class LoginViewModel : ViewModel() {
 
     fun checkCredentials(creds: Credentials, context: Context) {
         if (creds.isNotEmpty() && creds.login == "admin") {
-            // context.startActivity(Intent(context, MainActivity::class.java))
-            //(context as Activity).finish()
             _state.update { state -> state.copy(success = true) }
         } else {
-            //Toast.makeText(context, "Wrong Credentials", Toast.LENGTH_SHORT).show()
             _state.update { state -> state.copy(success = false) }
         }
     }

@@ -8,4 +8,6 @@ object Routes {
     val perguntas = "perguntas"
     val planoparto = "planoparto"
     val perfil = "perfil"
+    val acompanhamento = "acompanhamento"
+    val calendario = "calendario"
 }
