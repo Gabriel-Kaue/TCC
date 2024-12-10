@@ -60,7 +60,6 @@ fun SignupScreen(
         // errou asenha
     }
     Surface() {
-        var context = LocalContext.current
         var email by remember { mutableStateOf("") }
         var password by remember { mutableStateOf("") }
         var repetPassword by remember { mutableStateOf("") }
@@ -85,7 +84,7 @@ fun SignupScreen(
                 modifier = Modifier.fillMaxWidth()
             )
             Spacer(modifier = Modifier.height(20.dp))
-            ReapetField(
+            RepeatField(
                 value = repetPassword,
                 onChange = { value -> repetPassword = value },
                 submit = {},
@@ -182,7 +181,7 @@ fun PasswordFieldC(
 }
 
 @Composable
-fun ReapetField(
+fun RepeatField(
     value: String,
     onChange: (String) -> Unit,
     submit: () -> Unit,

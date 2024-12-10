@@ -43,6 +43,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusDirection
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalFocusManager
+import androidx.compose.ui.semantics.error
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
@@ -53,6 +54,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
+import view.pages.login.LoginViewModel
 import model.Credentials
 import navigation.Routes
 import view.MainActivity
@@ -65,15 +67,6 @@ fun LoginForm(
     viewModel: LoginViewModel = viewModel(),
     onClick: () -> Unit,
 ) {
-    // val navController = rememberNavController()
-    val state = viewModel.state.collectAsState()
-    val context = LocalContext.current
-    if (state.value.success) {
-        context.startActivity(Intent(context, MainActivity::class.java))
-        (context as Activity).finish()
-    } else {
-        // errou asenha
-    }
 
     Surface {
         var credentials by remember { mutableStateOf(Credentials()) }
@@ -106,7 +99,6 @@ fun LoginForm(
                 onChange = { data -> credentials = credentials.copy(pwd = data) },
                 submit = {
                     viewModel.checkCredentials(credentials, context)
-                    if (!checkCredentials(credentials, context)) credentials = Credentials()
                 },
                 modifier = Modifier.fillMaxWidth()
             )
@@ -130,17 +122,6 @@ fun LoginForm(
                 Text("Login")
             }
         }
-    }
-}
-
-fun checkCredentials(creds: Credentials, context: Context): Boolean {
-    if (creds.isNotEmpty() && creds.login == "admin") {
-        context.startActivity(Intent(context, MainActivity::class.java))
-        (context as Activity).finish()
-        return true
-    } else {
-        Toast.makeText(context, "Wrong Credentials", Toast.LENGTH_SHORT).show()
-        return false
     }
 }
 
@@ -256,9 +237,3 @@ fun LoginFormPreview() {
     val navController = rememberNavController() // Create NavController
     LoginForm(onClick = {}, navController = navController) // Pass NavController
 }
-
-//@Preview(showBackground = true, device = "id:Nexus One", showSystemUi = true)
-///@Composable
-//fun LoginFormPreviewDark() {
-//    LoginForm(onClick = {})
-//}

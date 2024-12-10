@@ -57,7 +57,7 @@ fun MainG() {
                 Calendario()
             }
             composable(Routes.perfil) {
-                Perfil()
+                Perfil(salvarOnClick = {})
             }
         }
     }
