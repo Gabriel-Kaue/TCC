@@ -7,4 +7,5 @@ object Routes {
     val maingest = "maingest"
     val perguntas = "perguntas"
     val planoparto = "planoparto"
+    val perfil = "perfil"
 }

@@ -22,7 +22,7 @@ import androidx.compose.ui.unit.dp
 fun FilledCardPlano(text: String) {
     Card(
         colors = CardDefaults.cardColors(
-            containerColor = Color(0xFFFFC0CB)
+            containerColor = MaterialTheme.colorScheme.primary,
         ),
         modifier = Modifier
             .size(width = 240.dp, height = 100.dp)
