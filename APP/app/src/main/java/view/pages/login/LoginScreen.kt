@@ -50,18 +50,22 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavController
+import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import model.Credentials
+import navigation.Routes
 import view.MainActivity
 
 
 @Composable
 fun LoginForm(
+    navController: NavHostController,
     windowSizeClass: androidx.window.core.layout.WindowSizeClass = currentWindowAdaptiveInfo().windowSizeClass,
     viewModel: LoginViewModel = viewModel(),
     onClick: () -> Unit,
 ) {
-    val navController = rememberNavController()
+    // val navController = rememberNavController()
     val state = viewModel.state.collectAsState()
     val context = LocalContext.current
     if (state.value.success) {
@@ -117,7 +121,7 @@ fun LoginForm(
             Spacer(modifier = Modifier.height(20.dp))
             Button(
                 onClick = {
-                    if (!checkCredentials(credentials, context)) credentials = Credentials()
+                    navController.navigate(Routes.maingest)
                 },
                 enabled = credentials.isNotEmpty(),
                 shape = RoundedCornerShape(5.dp),
@@ -139,16 +143,6 @@ fun checkCredentials(creds: Credentials, context: Context): Boolean {
         return false
     }
 }
-
-//data class Credentials(
-//    var login: String = "",
-//    var pwd: String = "",
-//    var remember: Boolean = false
-//) {
-//    fun isNotEmpty(): Boolean {
-//        return login.isNotEmpty() && pwd.isNotEmpty()
-//    }
-//}
 
 @Composable
 fun LabeledCheckbox(
@@ -259,11 +253,12 @@ fun PasswordField(
 @Preview(showBackground = true, device = "id:Nexus One", showSystemUi = true)
 @Composable
 fun LoginFormPreview() {
-    LoginForm(onClick = {})
+    val navController = rememberNavController() // Create NavController
+    LoginForm(onClick = {}, navController = navController) // Pass NavController
 }
 
-@Preview(showBackground = true, device = "id:Nexus One", showSystemUi = true)
-@Composable
-fun LoginFormPreviewDark() {
-    LoginForm(onClick = {})
-}
+//@Preview(showBackground = true, device = "id:Nexus One", showSystemUi = true)
+///@Composable
+//fun LoginFormPreviewDark() {
+//    LoginForm(onClick = {})
+//}

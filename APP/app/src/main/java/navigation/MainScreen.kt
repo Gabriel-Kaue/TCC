@@ -18,18 +18,14 @@ fun MainScreen() {
     Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
         NavHost(navController = navController, startDestination = Routes.home) {
             composable(Routes.home) {
-                HomeScreen(
-                    modifier = Modifier.padding(innerPadding),
-                    onLoginClick = {
-                        navController.navigate(Routes.login)
-                    },
-                    onSignupClick = {
-                        navController.navigate(Routes.signup)
-                    }
-                )
+                HomeScreen(modifier = Modifier.padding(innerPadding), onLoginClick = {
+                    navController.navigate(Routes.login)
+                }, onSignupClick = {
+                    navController.navigate(Routes.signup)
+                })
             }
             composable(Routes.login) {
-                LoginForm {
+                LoginForm(navController) {
 
                 }
 
