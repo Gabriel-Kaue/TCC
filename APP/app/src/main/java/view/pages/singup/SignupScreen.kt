@@ -42,6 +42,7 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.rememberNavController
+import navigation.Routes
 import view.MainActivity
 import view.pages.login.LoginViewModel
 
@@ -92,7 +93,9 @@ fun SignupScreen(
             )
             Spacer(modifier = Modifier.height(30.dp))
             Button(
-                onClick = onClick,
+                onClick = {
+                    navController.navigate(Routes.maingest)
+                },
                 enabled = email.isNotEmpty(),
                 shape = RoundedCornerShape(5.dp),
                 modifier = Modifier.fillMaxWidth()
