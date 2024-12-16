@@ -9,7 +9,7 @@ import androidx.room.PrimaryKey
     tableName = "tabela_gestante", foreignKeys = [ForeignKey(
         entity = Feto::class,
         childColumns = ["idFeto"],
-        parentColumns = ["feto"]
+        parentColumns = ["idFeto"]
     ), ForeignKey(
         entity = Endereco::class,
         childColumns = ["idEndereco"],
@@ -29,5 +29,5 @@ data class Gestante(
     @PrimaryKey
     val nis: Int,
     @ColumnInfo(name = "idFeto")
-    val feto: Int,
+    val idfeto: Int,
 )
