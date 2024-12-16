@@ -1,5 +1,6 @@
 package room.dao
 
+import androidx.lifecycle.LiveData
 import room.Gestante
 import androidx.room.Dao
 import androidx.room.Delete
@@ -17,4 +18,7 @@ interface GestanteDao {
 
     @Query("SELECT * FROM tabela_gestante ORDER BY nomeGest ASC")
     fun getGestanteOrderByGest(): Flow<List<Gestante>>
+
+    @Query("SELECT * FROM tabela_gestante ORDER BY nomeGest ASC")
+    fun getAll(): LiveData<List<Gestante>>
 }

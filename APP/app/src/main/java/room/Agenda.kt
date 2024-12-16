@@ -17,7 +17,7 @@ import java.util.Date
 data class Agenda(
     @PrimaryKey(autoGenerate = true)
     val idAgenda: Int,
-    val dataAgendamento: Date,
+    //val dataAgendamento: Date,
     @ColumnInfo(name = "nisGestante")
     val nisGestante: String,
 )
