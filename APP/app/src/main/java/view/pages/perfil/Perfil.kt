@@ -27,14 +27,16 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.key.Key
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun Perfil(
+    navController: NavController,
     salvarOnClick: () -> Unit
 ) {
-    val navController = rememberNavController()
+
     Scaffold(topBar = {
         CenterAlignedTopAppBar(
             title = { Text(text = "") },
@@ -161,8 +163,3 @@ fun PersonalInformationForm() {
     }
 }
 
-@Preview
-@Composable
-fun PreviewPerfil() {
-    Perfil(salvarOnClick = {})
-}

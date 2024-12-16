@@ -1,7 +1,9 @@
 package view.pages.vizualizarplano
 
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
@@ -64,7 +66,10 @@ fun FourCards() {
             singleLine = true,
             modifier = Modifier.fillMaxWidth()
         )
-        Button(onClick = {}, modifier = Modifier.fillMaxWidth()) {
+
+        //  Spacer para empurrar o botão para baixo.
+        Spacer(modifier = Modifier.height(10.dp)) // Ajuste a
+        Button(onClick = {}, modifier = Modifier.fillMaxWidth().height(64.dp)) {
             Text(text = "Salvar", textAlign = TextAlign.Center)
         }
     }
