@@ -10,7 +10,9 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import view.HomeScreen
 import view.pages.login.LoginForm
+import view.pages.maingest.DashboardG
 import view.pages.maingest.MainG
+import view.pages.perfil.Perfil
 import view.pages.singup.SignupScreen
 
 @Composable
@@ -38,10 +40,21 @@ fun MainScreen() {
                 }
             }
             composable(Routes.maingest) {
-                MainG {
-
-                }
+                DashboardG(
+                    onPlanoPartoClick = {},
+                    onPerguntasClick = {},
+                    onAcompanhamentoClick = {},
+                    onCalendarioClick = {},
+                    onPerfilClick = {navController.navigate(Routes.perfil)}
+                )
+            }
+            composable(Routes.perfil) {
+                Perfil(navController = navController, salvarOnClick = {})
             }
         }
     }
 }
+
+
+
+
