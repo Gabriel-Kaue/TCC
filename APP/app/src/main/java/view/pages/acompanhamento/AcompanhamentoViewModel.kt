@@ -4,31 +4,48 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
-import java.util.Random
+import room.Feto
+import java.time.LocalDate
 
-class AcompanhamentoViewModel : ViewModel() {
+class FetoViewModel : ViewModel() {
+    var feto by mutableStateOf(
+        Feto(
+            nomeFeto = "Feto",
+            dataNascimentoFeto = LocalDate.of(2024, 1, 1),
+            pesoFeto = "3.0 kg",
+            alturaFeto = "50 cm",
+            circunferenciaCabecaFeto = "34 cm",
+            idadeEmMesesFeto = 0
+        )
+    )
+        private set
 
-    var name by mutableStateOf("Baby")
-        private set
-    var birthDate by mutableStateOf("01/01/2024")
-        private set
-    var weight by mutableStateOf("N/A")
-        private set
-    var height by mutableStateOf("N/A")
-        private set
-    var headCircumference by mutableStateOf("N/A")
-        private set
-
-
-    private fun generateRandomValues() {
-        val random = Random()
-        name = "Baby ${random.nextInt(100)}"
-        weight = "${random.nextDouble() * 5 + 2} kg"
-        height = "${random.nextInt(20) + 50} cm"
-        headCircumference = "${random.nextInt(10) + 30} cm"
+    fun atualizarFeto() {
+        feto = simularCrescimentoFeto(feto)
     }
 
-    fun updateBabyData() {
-        generateRandomValues()
+    private fun simularCrescimentoFeto(fetoAtual: Feto): Feto {
+        val meses = fetoAtual.idadeEmMesesFeto + 1
+        val peso = calcularPesoFeto(meses)
+        val altura = calcularAlturaFeto(meses)
+        val circunferenciaCabeca = calcularCircunferenciaCabecaFeto(meses)
+        return fetoAtual.copy(
+            pesoFeto = String.format("%.1f kg", peso),
+            alturaFeto = String.format("%.1f cm", altura),
+            circunferenciaCabecaFeto = String.format("%.1f cm", circunferenciaCabeca),
+            idadeEmMesesFeto = meses
+        )
+    }
+
+    private fun calcularPesoFeto(idadeEmMeses: Int): Double {
+        return 3.0 + (idadeEmMeses * 0.3)
+    }
+
+    private fun calcularAlturaFeto(idadeEmMeses: Int): Double {
+        return 50.0 + (idadeEmMeses * 2.5)
+    }
+
+    private fun calcularCircunferenciaCabecaFeto(idadeEmMeses: Int): Double {
+        return 34.0 + (idadeEmMeses * 0.4)
     }
 }

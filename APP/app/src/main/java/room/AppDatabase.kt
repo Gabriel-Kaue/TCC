@@ -9,11 +9,14 @@ import room.dao.GestanteDao
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
+import view.pages.acompanhamento.LocalDateConverter
 
 @Database(
     entities = [Gestante::class, Agenda::class, Endereco::class, Feto::class, Faq::class],
     version = 1
 )
+@TypeConverters(LocalDateConverter::class)
 public abstract class AppDatabase : RoomDatabase() {
     abstract fun gestanteDao(): GestanteDao
     abstract fun agendaDao(): AgendaDao

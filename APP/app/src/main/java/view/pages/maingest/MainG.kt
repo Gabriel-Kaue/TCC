@@ -9,7 +9,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import navigation.Routes
-import view.pages.acompanhamento.Acompanhamento
+import view.pages.acompanhamento.FetoScreen
+
 import view.pages.calendario.Calendario
 import view.pages.perfil.Perfil
 import view.pages.vizualizarpf.ThreeCards
@@ -56,7 +57,7 @@ fun MainG() {
                 ThreeCards(navController = navController)
             }
             composable(Routes.acompanhamento){
-                Acompanhamento(navController = navController)
+                FetoScreen(navController = navController)
             }
 
             composable(Routes.calendario) {

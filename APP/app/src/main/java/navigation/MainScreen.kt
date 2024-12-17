@@ -9,9 +9,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import view.HomeScreen
-import view.pages.acompanhamento.Acompanhamento
-
-
+import view.pages.acompanhamento.FetoScreen
 import view.pages.login.LoginForm
 import view.pages.maingest.DashboardG
 import view.pages.perfil.Perfil
@@ -67,7 +65,7 @@ fun MainScreen() {
                 ThreeCards(navController = navController)
             }
             composable(Routes.acompanhamento){
-                Acompanhamento(navController = navController)
+                FetoScreen(navController = navController)
             }
             composable(Routes.calendario) {
                 Calendario(navController = navController)

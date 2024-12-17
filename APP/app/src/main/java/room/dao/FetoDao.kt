@@ -1,20 +1,18 @@
 package room.dao
 
 import androidx.room.Dao
-import androidx.room.Delete
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import androidx.room.Upsert
 import kotlinx.coroutines.flow.Flow
 import room.Feto
 
 @Dao
 interface FetoDao {
-    @Upsert
-    suspend fun addFeto(feto: Feto)
 
-    @Delete
-    suspend fun deleteFeto(feto: Feto)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun insert(feto: Feto)
 
-    @Query("SELECT * FROM tabela_feto ORDER BY idFeto ASC")
-    fun getFetoOrderByFeto(): Flow<List<Feto>>
+    @Query("SELECT * FROM tabela_feto")
+    fun getAllFetos(): Flow<List<Feto>>
 }
