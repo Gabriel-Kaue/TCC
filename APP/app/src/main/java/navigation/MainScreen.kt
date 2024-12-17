@@ -25,8 +25,10 @@ fun MainScreen() {
     val navController = rememberNavController()
 
     Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-        NavHost(navController = navController, startDestination = Routes.home,
-            modifier = Modifier.padding(innerPadding)) {
+        NavHost(
+            navController = navController, startDestination = Routes.home,
+            modifier = Modifier.padding(innerPadding)
+        ) {
             composable(Routes.home) {
                 HomeScreen(onLoginClick = {
                     navController.navigate(Routes.login)
@@ -42,9 +44,9 @@ fun MainScreen() {
                 }
             }
             composable(Routes.signup) {
-                SignupScreen {
+                SignupScreen(navController) {
                     navController.navigate(Routes.maingest) {
-                        popUpTo(Routes.home){ inclusive = true }
+                        popUpTo(Routes.home) { inclusive = true }
                     }
                 }
             }
@@ -58,15 +60,17 @@ fun MainScreen() {
                 )
             }
             composable(Routes.perfil) {
-                Perfil(navController = navController, salvarOnClick = {navController.popBackStack()})
+                Perfil(
+                    navController = navController,
+                    salvarOnClick = { navController.popBackStack() })
             }
-            composable(Routes.planoparto){
+            composable(Routes.planoparto) {
                 FourCards(navController = navController)
             }
             composable(Routes.perguntas) {
                 ThreeCards(navController = navController)
             }
-            composable(Routes.acompanhamento){
+            composable(Routes.acompanhamento) {
                 Acompanhamento(navController = navController)
             }
             composable(Routes.calendario) {

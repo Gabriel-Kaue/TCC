@@ -41,6 +41,7 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import navigation.Routes
 import view.MainActivity
@@ -48,6 +49,7 @@ import view.pages.login.LoginViewModel
 
 @Composable
 fun SignupScreen(
+    navController: NavHostController,
     viewModel: LoginViewModel = viewModel(),
     onClick: () -> Unit
 ) {
