@@ -23,8 +23,10 @@ fun MainScreen() {
     val navController = rememberNavController()
 
     Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-        NavHost(navController = navController, startDestination = Routes.home,
-            modifier = Modifier.padding(innerPadding)) {
+        NavHost(
+            navController = navController, startDestination = Routes.home,
+            modifier = Modifier.padding(innerPadding)
+        ) {
             composable(Routes.home) {
                 HomeScreen(onLoginClick = {
                     navController.navigate(Routes.login)
@@ -40,9 +42,9 @@ fun MainScreen() {
                 }
             }
             composable(Routes.signup) {
-                SignupScreen {
+                SignupScreen(navController) {
                     navController.navigate(Routes.maingest) {
-                        popUpTo(Routes.home){ inclusive = true }
+                        popUpTo(Routes.home) { inclusive = true }
                     }
                 }
             }
@@ -56,16 +58,23 @@ fun MainScreen() {
                 )
             }
             composable(Routes.perfil) {
-                Perfil(navController = navController, salvarOnClick = {navController.popBackStack()})
+                Perfil(
+                    navController = navController,
+                    salvarOnClick = { navController.popBackStack() })
             }
-            composable(Routes.planoparto){
+            composable(Routes.planoparto) {
                 FourCards(navController = navController)
             }
             composable(Routes.perguntas) {
                 ThreeCards(navController = navController)
             }
+<<<<<<< HEAD
             composable(Routes.acompanhamento){
                 FetoScreen(navController = navController)
+=======
+            composable(Routes.acompanhamento) {
+                Acompanhamento(navController = navController)
+>>>>>>> f64c894db08a9b66bf5b47e90d9f1168268d89ea
             }
             composable(Routes.calendario) {
                 Calendario(navController = navController)
