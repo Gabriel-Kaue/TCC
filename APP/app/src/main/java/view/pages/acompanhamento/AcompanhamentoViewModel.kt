@@ -12,9 +12,9 @@ class FetoViewModel : ViewModel() {
         Feto(
             nomeFeto = "Feto",
             dataNascimentoFeto = LocalDate.of(2024, 1, 1),
-            pesoFeto = "3.0 kg",
-            alturaFeto = "50 cm",
-            circunferenciaCabecaFeto = "34 cm",
+            pesoFeto = "N/A",
+            alturaFeto = "N/A",
+            circunferenciaCabecaFeto = "N/A",
             idadeEmMesesFeto = 0
         )
     )

@@ -8,6 +8,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import room.Feto
 import view.HomeScreen
 import view.pages.acompanhamento.FetoScreen
 import view.pages.login.LoginForm
@@ -68,17 +69,18 @@ fun MainScreen() {
             composable(Routes.perguntas) {
                 ThreeCards(navController = navController)
             }
-<<<<<<< HEAD
+
             composable(Routes.acompanhamento){
                 FetoScreen(navController = navController)
-=======
+
             composable(Routes.acompanhamento) {
-                Acompanhamento(navController = navController)
->>>>>>> f64c894db08a9b66bf5b47e90d9f1168268d89ea
+                FetoScreen(navController = navController)
+
             }
             composable(Routes.calendario) {
                 Calendario(navController = navController)
             }
         }
     }
-}
+    }
+    }
