@@ -3,20 +3,22 @@ package view.pages.maingest
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import navigation.Routes
+import view.pages.acompanhamento.Acompanhamento
 import view.pages.calendario.Calendario
 import view.pages.perfil.Perfil
 import view.pages.vizualizarpf.ThreeCards
 import view.pages.vizualizarplano.FourCards
-import view.pages.acompanhamento.Acompanhamento
+
+
 
 @Composable
-fun MainG(function: () -> Unit) {
+fun MainG() {
     val navController = rememberNavController()
     Scaffold { innerPadding ->
         NavHost(
@@ -40,25 +42,32 @@ fun MainG(function: () -> Unit) {
                         navController.navigate(Routes.calendario)
                     },
                     onPerfilClick = {
-                        navController.navigate(Routes.perfil)
+                        // Verifica se já está na tela de perfil para evitar navegação duplicada
+                        if (navController.currentDestination?.route != Routes.perfil) {
+                            navController.navigate(Routes.perfil)
+                        }
                     },
                 )
             }
             composable(Routes.planoparto) {
-                FourCards()
+                FourCards(navController = navController)
             }
             composable(Routes.perguntas) {
-                ThreeCards()
+                ThreeCards(navController = navController)
             }
-            composable(Routes.acompanhamento) {
-                Acompanhamento()
+            composable(Routes.acompanhamento){
+                Acompanhamento(navController = navController)
             }
+
             composable(Routes.calendario) {
-                Calendario()
+                Calendario(navController = navController)
             }
             composable(Routes.perfil) {
-                Perfil(navController = navController,salvarOnClick = {})
+                Perfil(navController = navController, salvarOnClick = {
+                    // Retorna ao Dashboard sem recriar a tela de login
+                    navController.popBackStack(Routes.maingest, false)
+                })
             }
         }
     }
-}
+    }
