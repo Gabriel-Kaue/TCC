@@ -5,10 +5,13 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.room.Room
 import navigation.Routes
+import room.AppDatabase
 import view.pages.acompanhamento.FetoScreen
 
 import view.pages.calendario.Calendario
@@ -50,8 +53,13 @@ fun MainG() {
                     },
                 )
             }
-            composable(Routes.planoparto) {
-                FourCards(navController = navController)
+            composable("planoParto") {
+                val context = LocalContext.current
+                val database = remember {
+                    Room.databaseBuilder(context, AppDatabase::class.java, "tcc-db")
+                        .build()
+                }
+                FourCards(navController = navController, database = database)
             }
             composable(Routes.perguntas) {
                 ThreeCards(navController = navController)

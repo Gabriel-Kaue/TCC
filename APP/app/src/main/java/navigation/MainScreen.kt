@@ -4,11 +4,15 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import room.Feto
+import androidx.room.Room
+import room.AppDatabase
+
 import view.HomeScreen
 import view.pages.acompanhamento.FetoScreen
 import view.pages.login.LoginForm
@@ -22,6 +26,12 @@ import view.pages.calendario.Calendario
 @Composable
 fun MainScreen() {
     val navController = rememberNavController()
+
+    val context = LocalContext.current
+    val database = remember {
+        Room.databaseBuilder(context, AppDatabase::class.java, "tcc-db")
+            .build()
+    }
 
     Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
         NavHost(
@@ -54,7 +64,7 @@ fun MainScreen() {
                     onPlanoPartoClick = { navController.navigate(Routes.planoparto) },
                     onPerguntasClick = { navController.navigate(Routes.perguntas) },
                     onAcompanhamentoClick = { navController.navigate(Routes.acompanhamento) },
-                    onCalendarioClick = { navController.navigate(Routes.calendario) }, // <--- MUDAR ESTA LINHA
+                    onCalendarioClick = { navController.navigate(Routes.calendario) },
                     onPerfilClick = { navController.navigate(Routes.perfil) }
                 )
             }
@@ -64,23 +74,18 @@ fun MainScreen() {
                     salvarOnClick = { navController.popBackStack() })
             }
             composable(Routes.planoparto) {
-                FourCards(navController = navController)
+                FourCards(navController = navController, database = database)
             }
             composable(Routes.perguntas) {
                 ThreeCards(navController = navController)
             }
-
             composable(Routes.acompanhamento){
                 FetoScreen(navController = navController)
-
-            composable(Routes.acompanhamento) {
-                FetoScreen(navController = navController)
-
             }
             composable(Routes.calendario) {
                 Calendario(navController = navController)
             }
+
         }
     }
-    }
-    }
+}

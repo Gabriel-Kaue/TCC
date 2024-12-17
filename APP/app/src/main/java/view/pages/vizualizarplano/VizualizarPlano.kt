@@ -1,40 +1,28 @@
 package view.pages.vizualizarplano
 
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBackIosNew
-import androidx.compose.material3.Button
-import androidx.compose.material3.CenterAlignedTopAppBar
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedTextField
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
+import room.AppDatabase
+
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun FourCards(navController: NavHostController) {
-    var trabalhoDeParto by remember { mutableStateOf("") }
-    var duranteParto by remember { mutableStateOf("") }
-    var aposParto by remember { mutableStateOf("") }
-    var cuidadosComBebe by remember { mutableStateOf("") }
+fun FourCards(
+    navController: NavHostController,
+    database: AppDatabase,
+    viewModel: PlanoPartoViewModel = viewModel { PlanoPartoViewModel(database) }
+) {
+    val focusManager = LocalFocusManager.current
 
 
     Scaffold(topBar = {
@@ -49,7 +37,9 @@ fun FourCards(navController: NavHostController) {
             })
     }) { innerPadding ->
         Column(
-            modifier = Modifier.padding(innerPadding).fillMaxSize(),
+            modifier = Modifier
+                .padding(innerPadding)
+                .fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
@@ -60,37 +50,45 @@ fun FourCards(navController: NavHostController) {
                 modifier = Modifier.padding(bottom = 16.dp)
             )
             OutlinedTextField(
-                value = trabalhoDeParto,
-                onValueChange = { trabalhoDeParto = it },
+                value = viewModel.trabalhoDeParto,
+                onValueChange = { viewModel.updateTrabalhoDeParto(it) },
                 label = { Text("Trabalho de parto") },
                 singleLine = true,
                 modifier = Modifier.fillMaxWidth()
             )
             OutlinedTextField(
-                value = duranteParto,
-                onValueChange = { duranteParto = it },
+                value = viewModel.duranteParto,
+                onValueChange = { viewModel.updateDuranteParto(it) },
                 label = { Text("Durante o parto") },
                 singleLine = true,
                 modifier = Modifier.fillMaxWidth()
             )
             OutlinedTextField(
-                value = aposParto,
-                onValueChange = { aposParto = it },
+                value = viewModel.aposParto,
+                onValueChange = { viewModel.updateAposParto(it) },
                 label = { Text("Após o parto") },
                 singleLine = true,
                 modifier = Modifier.fillMaxWidth()
             )
             OutlinedTextField(
-                value = cuidadosComBebe,
-                onValueChange = { cuidadosComBebe = it },
+                value = viewModel.cuidadosComBebe,
+                onValueChange = { viewModel.updateCuidadosComBebe(it) },
                 label = { Text("Cuidados com o bebê") },
                 singleLine = true,
                 modifier = Modifier.fillMaxWidth()
             )
 
             //  Spacer para empurrar o botão para baixo.
-            Spacer(modifier = Modifier.height(10.dp)) // Ajuste a
-            Button(onClick = { }, modifier = Modifier.fillMaxWidth().height(64.dp)) {
+            Spacer(modifier = Modifier.height(10.dp))
+            Button(
+                onClick = {
+                    viewModel.salvarPlanoDeParto()
+                    focusManager.clearFocus()
+                },
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(64.dp)
+            ) {
                 Text(text = "Salvar", textAlign = TextAlign.Center)
             }
         }
