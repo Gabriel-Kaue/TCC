@@ -1,5 +1,6 @@
 package view.pages.maingest
 
+import FourCards
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
@@ -17,7 +18,7 @@ import view.pages.acompanhamento.FetoScreen
 import view.pages.calendario.Calendario
 import view.pages.perfil.Perfil
 import view.pages.vizualizarpf.ThreeCards
-import view.pages.vizualizarplano.FourCards
+
 
 
 

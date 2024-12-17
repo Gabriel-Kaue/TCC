@@ -12,7 +12,7 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import room.dao.PlanoPartoDao
 import room.viewmodel.PlanoParto
-import view.pages.acompanhamento.LocalDateConverter
+import room.viewmodel.LocalDateConverter
 
 @Database(
     entities = [Gestante::class, Agenda::class, Endereco::class, Feto::class, Faq::class, PlanoParto::class],

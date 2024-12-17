@@ -1,5 +1,6 @@
 package navigation
 
+import FourCards
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
@@ -20,7 +21,7 @@ import view.pages.maingest.DashboardG
 import view.pages.perfil.Perfil
 import view.pages.singup.SignupScreen
 import view.pages.vizualizarpf.ThreeCards
-import view.pages.vizualizarplano.FourCards
+
 import view.pages.calendario.Calendario
 
 @Composable
