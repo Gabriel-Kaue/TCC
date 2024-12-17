@@ -9,20 +9,26 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import view.HomeScreen
+import view.pages.acompanhamento.Acompanhamento
+
+
 import view.pages.login.LoginForm
 import view.pages.maingest.DashboardG
-import view.pages.maingest.MainG
 import view.pages.perfil.Perfil
 import view.pages.singup.SignupScreen
+import view.pages.vizualizarpf.ThreeCards
+import view.pages.vizualizarplano.FourCards
+import view.pages.calendario.Calendario
 
 @Composable
 fun MainScreen() {
     val navController = rememberNavController()
 
     Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-        NavHost(navController = navController, startDestination = Routes.home) {
+        NavHost(navController = navController, startDestination = Routes.home,
+            modifier = Modifier.padding(innerPadding)) {
             composable(Routes.home) {
-                HomeScreen(modifier = Modifier.padding(innerPadding), onLoginClick = {
+                HomeScreen(onLoginClick = {
                     navController.navigate(Routes.login)
                 }, onSignupClick = {
                     navController.navigate(Routes.signup)
@@ -30,31 +36,42 @@ fun MainScreen() {
             }
             composable(Routes.login) {
                 LoginForm(navController) {
-
+                    navController.navigate(Routes.maingest) {
+                        popUpTo(Routes.home) { inclusive = true }
+                    }
                 }
-
             }
             composable(Routes.signup) {
                 SignupScreen {
-
+                    navController.navigate(Routes.maingest) {
+                        popUpTo(Routes.home){ inclusive = true }
+                    }
                 }
             }
             composable(Routes.maingest) {
                 DashboardG(
-                    onPlanoPartoClick = {},
-                    onPerguntasClick = {},
-                    onAcompanhamentoClick = {},
-                    onCalendarioClick = {},
-                    onPerfilClick = {navController.navigate(Routes.perfil)}
+                    onPlanoPartoClick = { navController.navigate(Routes.planoparto) },
+                    onPerguntasClick = { navController.navigate(Routes.perguntas) },
+                    onAcompanhamentoClick = { navController.navigate(Routes.acompanhamento) },
+                    onCalendarioClick = { navController.navigate(Routes.calendario) }, // <--- MUDAR ESTA LINHA
+                    onPerfilClick = { navController.navigate(Routes.perfil) }
                 )
             }
             composable(Routes.perfil) {
-                Perfil(navController = navController, salvarOnClick = {})
+                Perfil(navController = navController, salvarOnClick = {navController.popBackStack()})
+            }
+            composable(Routes.planoparto){
+                FourCards(navController = navController)
+            }
+            composable(Routes.perguntas) {
+                ThreeCards(navController = navController)
+            }
+            composable(Routes.acompanhamento){
+                Acompanhamento(navController = navController)
+            }
+            composable(Routes.calendario) {
+                Calendario(navController = navController)
             }
         }
     }
 }
-
-
-
-

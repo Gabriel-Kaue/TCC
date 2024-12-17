@@ -27,6 +27,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
@@ -44,14 +45,14 @@ fun DashboardG(
             CenterAlignedTopAppBar(
                 title = { Text(text = "") },
                 navigationIcon = {
-                    IconButton(onClick = { onPerfilClick() }) {
+                    IconButton(onClick = onPerfilClick ) {
                         Icon(imageVector = Icons.Filled.AccountCircle, contentDescription = "Pessoa")
                     }
                 }
             )
         },
         floatingActionButton = {
-            LargeFloatingActionButton(onClick = { onCalendarioClick() }) {
+            LargeFloatingActionButton(onClick = onCalendarioClick) { // <--- MUDAR ESTA LINHA
                 Icon(Icons.Filled.CalendarMonth, contentDescription = "Calendario")
             }
         }
@@ -62,7 +63,7 @@ fun DashboardG(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Button(
-                onClick = { onPerguntasClick() },
+                onClick = onPerguntasClick,
                 modifier = Modifier.fillMaxWidth(0.8f).height(84.dp),
                 border = BorderStroke(2.dp, Color.Black)
             ) {
@@ -70,7 +71,7 @@ fun DashboardG(
             }
             Spacer(modifier = Modifier.height(16.dp))
             Button(
-                onClick = { onPlanoPartoClick() },
+                onClick = onPlanoPartoClick,
                 modifier = Modifier.fillMaxWidth(0.8f).height(84.dp),
                 border = BorderStroke(2.dp, Color.Black)
             ) {
@@ -78,7 +79,7 @@ fun DashboardG(
             }
             Spacer(modifier = Modifier.height(16.dp))
             Button(
-                onClick = { onAcompanhamentoClick() },
+                onClick = onAcompanhamentoClick,
                 modifier = Modifier.fillMaxWidth(0.8f).height(84.dp),
                 border = BorderStroke(2.dp, Color.Black)
             ) {
