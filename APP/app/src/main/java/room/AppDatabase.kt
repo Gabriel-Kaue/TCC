@@ -9,17 +9,23 @@ import room.dao.GestanteDao
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
+import room.dao.PlanoPartoDao
+import room.viewmodel.PlanoParto
+import view.pages.acompanhamento.LocalDateConverter
 
 @Database(
-    entities = [Gestante::class, Agenda::class, Endereco::class, Feto::class, Faq::class],
+    entities = [Gestante::class, Agenda::class, Endereco::class, Feto::class, Faq::class, PlanoParto::class],
     version = 1
 )
-public abstract class AppDatabase : RoomDatabase() {
+@TypeConverters(LocalDateConverter::class)
+    abstract class AppDatabase : RoomDatabase() {
     abstract fun gestanteDao(): GestanteDao
     abstract fun agendaDao(): AgendaDao
     abstract fun fetoDao(): FetoDao
     abstract fun faqDao(): FaqDao
     abstract fun enderecoDao(): EnderecoDao
+    abstract fun planoPartoDao(): PlanoPartoDao
 
     companion object {
         @Volatile

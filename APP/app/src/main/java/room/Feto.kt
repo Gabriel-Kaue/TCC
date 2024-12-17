@@ -2,16 +2,16 @@ package room
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.time.LocalDate
 
 @Entity(tableName = "tabela_feto")
 data class Feto(
-
-    val peso: Float,
-    val tipoSang: String,
-    val glicemia: Int,
-    val tamanho: Float,
-    val pressArterialL: Float,
-    val bfc: Int,
     @PrimaryKey(autoGenerate = true)
-    val idFeto: Int
+    val id: Int = 0,
+    val nomeFeto: String,
+    val dataNascimentoFeto: LocalDate,
+    val pesoFeto: String,
+    val alturaFeto: String,
+    val circunferenciaCabecaFeto: String,
+    val idadeEmMesesFeto: Int
 )
