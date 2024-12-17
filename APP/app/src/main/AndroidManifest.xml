@@ -15,10 +15,6 @@
         <activity
             android:name="view.MainActivity"
             android:exported="true"
-<<<<<<< HEAD
-=======
-            android:label="GestCare"
->>>>>>> 962bda41726d7b3fc9c006c5771b4ff32e418ba8
             android:theme="@style/Theme.APP">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
