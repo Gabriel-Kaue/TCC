@@ -1,4 +1,4 @@
-package view.pages.acompanhamento
+package room.viewmodel
 
 import androidx.room.TypeConverter
 import java.time.LocalDate

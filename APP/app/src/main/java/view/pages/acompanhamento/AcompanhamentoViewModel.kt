@@ -10,7 +10,7 @@ import java.time.LocalDate
 class FetoViewModel : ViewModel() {
     var feto by mutableStateOf(
         Feto(
-            nomeFeto = "Feto",
+            nomeFeto = "Baby",
             dataNascimentoFeto = LocalDate.of(2024, 1, 1),
             pesoFeto = "N/A",
             alturaFeto = "N/A",

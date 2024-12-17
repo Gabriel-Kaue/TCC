@@ -1,6 +1,6 @@
-package view.pages.vizualizarplano
-
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBackIosNew
 import androidx.compose.material3.*
@@ -13,7 +13,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import room.AppDatabase
-
+import view.pages.vizualizarplano.PlanoPartoViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -23,7 +23,7 @@ fun FourCards(
     viewModel: PlanoPartoViewModel = viewModel { PlanoPartoViewModel(database) }
 ) {
     val focusManager = LocalFocusManager.current
-
+    val scrollState = rememberScrollState()
 
     Scaffold(topBar = {
         CenterAlignedTopAppBar(
@@ -39,7 +39,8 @@ fun FourCards(
         Column(
             modifier = Modifier
                 .padding(innerPadding)
-                .fillMaxSize(),
+                .fillMaxSize()
+                .verticalScroll(scrollState),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
@@ -78,7 +79,7 @@ fun FourCards(
                 modifier = Modifier.fillMaxWidth()
             )
 
-            //  Spacer para empurrar o botão para baixo.
+
             Spacer(modifier = Modifier.height(10.dp))
             Button(
                 onClick = {
